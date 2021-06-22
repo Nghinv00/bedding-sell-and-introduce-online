@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html"  charset="UTF-8">
+    <title>Hello World</title>
+    <!--css-->
+    <link th:href="@{/static/css/bootstrap.css}" rel="stylesheet"/>
+    <!--js-->
+    <script th:src="@{/static/js/bootstrap.js}"></script>
+</head>
+<body>
+
+<h1>index page</h1>
+<h1 th:utext="#{loda.hello}"></h1>
+<a th:href="@{/web/profile}" class="btn btn-primary">Profile</a>
+<br><br>
+<a href="/web/about">About Page Not Param</a>
+<a href="/web/about?about=Nghi Nguyen Van">About Page </a>
+
+<span th:if="${!#strings.isEmpty(name)}">
+        <h2 style="color:red;" th:text="'Hello, ' + ${name}"></h2>
+</span>
+
+
+<form method="get" action="/web/hello">
+    <input type="input" name="name">
+    <button type="submit">Submit</button>
+</form>
+
+
+<a th:href="@{hello(name=${name})}"  target="_blank" > view 1</a>
+
+<a th:href="@{/web/hello(name=${name})}" target="_blank"> view 2</a>
+
+<a th:href="@{/web/hello/{name}/hello(name=${name})}" target="_blank"> view 3 </a>
+
+</body>
+</html>

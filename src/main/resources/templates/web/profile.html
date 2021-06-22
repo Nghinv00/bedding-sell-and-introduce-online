@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html"  charset="UTF-8">
+
+    <title>Hello World</title>
+
+    <!--css-->
+
+    <!--css-->
+    <link th:href="@{/static/css/bootstrap.css}" rel="stylesheet"/>
+
+    <!--js-->
+    <script th:src="@{/static/js/bootstrap.js}"></script>
+
+</head>
+<body>
+<h1>index page</h1>
+
+
+
+<h1 th:utext="#{loda.hello}"></h1>
+
+<a th:href="@{/web/index}" class="btn btn-primary">Return</a>
+
+<ul>
+
+    <!--Duyệt qua toàn bộ phần tử trong biến "lodaProfile"-->
+
+    <li th:each="info : ${lodaProfile}">
+
+    <!--Với mỗi phần tử, lấy ra key và value-->
+
+<!--    <span th:text="*{info.key}></span>-->
+<!--    <span th:text="*{info.value}"></span>-->
+        <span th:text="*{info.key}"></span>
+        :
+        <span th:text="*{info.value}"></span>
+    </li>
+
+</ul>
+
+<form method="post" action="/web/profile">
+    <button type="submit">Chang Data</button>
+</form>
+
+<br>
+
+<form method="get" action="/web/profile">
+    <button type="submit">Restore Data</button>
+</form>
+
+
+<form method="put" action="/web/profile">
+    <button type="submit">Put Data</button>
+</form>
+
+<form method="delete" action="/web/profile">
+    <button type="submit">Delete Data</button>
+</form>
+
+</body>
+</html>
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>update-Member.thymleaf</h2>
+<form th:action="updateMember" th:method="POST"  th:object="${member}">
+
+    GUID: <input type="text" name="MemberGuiId" th:field="*{MemberGuiId}"/>
+    <div th:if="${#fields.hasErrors('MemberGuiId')}" class="text-danger" th:errors="*{MemberGuiId}">NameError</div>
+    <br/><br/>
+
+    MemberId: <input type="text"  name="UserName"  th:field="${member.MemberId}"/>
+    <div th:if="${#fields.hasErrors('MemberId')}" class="text-danger" th:errors="*{MemberId}">NameError</div>
+    <br/><br/>
+
+    MemberName: <input type="text"  name="MemberName" th:field="*{MemberName}"/>
+    <div th:if="${#fields.hasErrors('MemberName')}" class="text-danger" th:errors="*{MemberName}">NameError</div>
+    <br/><br/>
+
+    MemberLogin: <input type="text"  name="MemberLogin" th:field="*{MemberLogin}"/>
+    <div th:if="${#fields.hasErrors('MemberLogin')}" class="text-danger" th:errors="*{MemberLogin}">NameError</div>
+    <br/><br/>
+
+    Password: <input type="text"  name="Password" th:field="*{Password}"/>
+    <div th:if="${#fields.hasErrors('Password')}" class="text-danger" th:errors="*{Password}">NameError</div>
+    <br/><br/>
+
+    <button type="submit" class="text-danger">Submit</button>
+</form>
+
+
+</body>
+</html>

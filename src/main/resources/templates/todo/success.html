@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--css-->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+
+
+    <!--js-->
+    <script th:src="@{/js/bootstrap.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+
+</head>
+<body>
+<h1>To-do</h1>
+<h1 th:utext="${succeess}" class=".text-danger"></h1>
+
+
+<a th:href="@{listTodo}" class="btn btn-primary">Xem danh sach cong viec</a>
+</body>
+</html>

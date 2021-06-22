@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Member Index</title>
+    <!--css-->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+
+
+    <!--js-->
+    <script th:src="@{/js/bootstrap.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+</head>
+<body>
+<h1>Success page</h1>
+
+<span th:text="${messageSuccess}" class="text-danger"> </span>
+
+<br><br>
+
+
+<form th:action="updateMember" th:method="GET"  th:object="${member}">
+
+    GUID: <input type="text" name="MemberGuiId" th:field="*{MemberGuiId}"/>
+    <br/><br/>
+
+    MemberId: <input type="text"  name="UserName"  th:field="${member.MemberId}"/>
+    <br/><br/>
+
+    MemberName: <input type="text"  name="MemberName" th:field="*{MemberName}"/>
+    <br/><br/>
+
+    MemberLogin: <input type="text"  name="MemberLogin" th:field="*{MemberLogin}"/>
+    <br/><br/>
+
+    Password: <input type="text"  name="Password" th:field="*{Password}"/>
+    <br/><br/>
+
+    <button type="submit" class="text-danger">Submit</button>
+</form>
+<br/><br/>
+<a th:href="@{index}" class="btn btn-primary">Index member</a>
+</body>
+</html>

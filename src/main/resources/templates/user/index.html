@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Index</title>
+</head>
+<body>
+User
+
+// thymeleaf
+<form method="post" th:action="@{updateUser}" th:object="${user}">
+<h2>add-user.jsp</h2>
+Id: ${user.id} <br/>
+Name: ${user.name}<br/>
+Email: ${user.email }<br/>
+Phone Number: ${user.phoneNumber }<br/>
+    <a th:href=="@{updateUser}" class="btn btn-danger">Add User </a>
+</form>
+
+<br><br><br><br><br><br><br>
+<a th:href=="@{addUser}" class="btn btn-info">Add User </a>
+
+
+</body>
+</html>

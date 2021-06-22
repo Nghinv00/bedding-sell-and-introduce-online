@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--css-->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+
+    <!--js-->
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+</head>
+<body>
+<h1>Base Rest Controller</h1>
+
+<form th:action="addMember" th:method="POST"  >
+
+    GUID: <input type="text" name="MemberGuiId" id="MemberGuiId"  />
+<!--    <div th:if="${#fields.hasErrors('MemberGuiId')}" class="text-danger" th:errors="*{MemberGuiId}">NameError</div>-->
+    <br/><br/>
+
+    MemberId: <input type="text"  name="UserName" id="UserName"  />
+<!--    <div th:if="${#fields.hasErrors('MemberId')}" class="text-danger" th:errors="*{MemberId}">NameError</div>-->
+    <br/><br/>
+
+    MemberName: <input type="text"  name="MemberName" id="MemberName" />
+<!--    <div th:if="${#fields.hasErrors('MemberName')}" class="text-danger" th:errors="*{MemberName}">NameError</div>-->
+    <br/><br/>
+
+    MemberLogin: <input type="text"  name="MemberLogin" id="MemberLogin"  />
+<!--    <div th:if="${#fields.hasErrors('MemberLogin')}" class="text-danger" th:errors="*{MemberLogin}">NameError</div>-->
+    <br/><br/>
+
+    Password: <input type="text"  name="Password" id="Password"  />
+<!--    <div th:if="${#fields.hasErrors('Password')}" class="text-danger" th:errors="*{Password}">NameError</div>-->
+    <br/><br/>
+
+    <button type="button" class="text-danger" th:id="insert">Insert</button>
+    <br/>
+    <button type="button" class="text-danger" th:id="update" >Update not valid</button>
+    <button type="button" class="text-danger" th:id="updatev2" >Update Valid</button>
+    <br/>
+    <button type="button" class="text-danger" th:id="passL1">Pass L1</button>
+    <button type="button" class="text-danger" th:id="passL2">Pass L2</button>
+
+    <button type="button" class="text-danger" th:id="test1">test1</button>
+    <button type="button" class="text-danger" th:id="test2">test2</button>
+</form>
+
+
+<script>
+    $.ajax({
+        type: "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        url: "/memberrest/",
+        cache: false,
+        async: false,
+        dataType: 'json',
+        success: function (data) {   // success callback function
+            $("#MemberGuiId").val(data.memberGuiId);
+            $("#UserName").val(data.memberId);
+            $("#MemberName").val(data.memberLogin);
+            $("#MemberLogin").val(data.memberName);
+            $("#Password").val(data.password);
+        },
+        error: function (errorMessage) { // error callback
+            console.log(errorMessage);
+        }
+    });
+
+    $(document).ready(function () {
+        $("#insert").on("click", function () {
+            var modelObj = {
+                id: $("#UserName").val(),
+                name: "22"
+            };
+            $.ajax({
+                type: "POST",
+                url: "/memberrest/restaddmemberv4",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                data: JSON.stringify(modelObj),
+                cache: false,
+                async: false,
+                dataType: 'json',
+                success: function (data) {   // success callback function
+                    console.log("1");
+                    // $("#UserName").val(data.memberId)
+                },
+                error: function (errorMessage) { // error callback
+                    console.log("2");
+                    console.log(errorMessage);
+                    console.log(errorMessage.responseJSON);
+                    console.log(errorMessage.responseJSON.errors[0]);
+                }
+            });
+        });
+    })
+
+    $(function() {
+        $("#update").on("click", function () {
+            var member = {
+                memberGuiId :  $("#MemberGuiId").val(),
+                memberName : $("#MemberName").val(),
+                memberLogin : $("#MemberLogin").val(),
+                password  : $("#Password").val(),
+                memberId : parseInt($("#UserName").val()),
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "/memberrest/restupdatemember",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                data: JSON.stringify(member),
+                cache: false,
+                async: false,
+                dataType: 'json',
+                success: function (data) {   // success callback function
+                    console.log("1");
+                    console.log(data);
+                },
+                error: function (errorMessage) { // error callback
+                    console.log("2");
+                    console.log(errorMessage.responseJSON);
+                    console.log(errorMessage.responseJSON.errors[0]);
+                }
+            });
+        });
+
+        $("#updatev2").on("click", function () {
+            var member = {
+                memberGuiId :  $("#MemberGuiId").val(),
+                memberName : $("#MemberName").val(),
+                memberLogin : $("#MemberLogin").val(),
+                password  : $("#Password").val(),
+                memberId : parseInt($("#UserName").val()),
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "/memberrest/restupdatememberv2",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                data: JSON.stringify(member),
+                cache: false,
+                async: false,
+                dataType: 'json',
+                success: function (data) {   // success callback function
+                    console.log("1");
+                    console.log(data);
+                },
+                error: function (errorMessage) { // error callback
+                    console.log("2");
+                    console.log(errorMessage.responseJSON);
+                    console.log(errorMessage.responseJSON.errors[0]);
+                }
+            });
+        });
+    });
+
+
+    // Pass
+    $("#passL1").on("click", function () {
+        $.ajax({
+            type: "POST",
+            url: "/memberrest/restaddmemberv2",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+            },
+            data: { age: "20" },
+            cache: false,
+            async: false,
+            dataType: 'json',
+            success: function (data) {   // success callback function
+                console.log("1");
+                console.log(data.memberGuiId);
+            },
+            error: function (errorMessage) { // error callback
+                console.log("2");
+                console.log(errorMessage);
+            }
+        });
+    });
+
+    // Javascript
+    var member = {
+        MemberGuiId : $("#MemberGuiId").val(),
+        MemberName : $("#MemberName").val(),
+        MemberLogin : $("#MemberLogin").val(),
+        Password  : $("#Password").val(),
+        MemberId : parseInt($("#UserName").val()),
+    };
+    $("#passL2").on("click", function () {
+        var member = {
+            MemberGuiId : $("#MemberGuiId").val(),
+            MemberName : $("#MemberName").val(),
+            MemberLogin : $("#MemberLogin").val(),
+            Password  : $("#Password").val(),
+            MemberId : parseInt($("#UserName").val()),
+        };
+        $.ajax({
+            type: "POST",
+            url: "/memberrest/restaddmemberv3",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+            },
+            data: member,
+            cache: false,
+            async: false,
+            dataType: 'json',
+            success: function (data) {   // success callback function
+                console.log("1");
+                $("#UserName").val(data.memberId)
+            },
+            error: function (errorMessage) { // error callback
+                console.log("2");
+                console.log(errorMessage);
+            }
+        });
+    });
+    // // Controller
+    // // TODO:
+    // @RequestMapping(value = "/restaddmemberv3", method = RequestMethod.POST)
+    // public ResponseEntity<MembersDto> restaddmemberv3(
+    //     MembersDto member
+    // ) {
+    //     System.out.println(member.getMemberGuiId());
+    //     System.out.println(member.getMemberId());
+    //     member.setMemberId(member.getMemberId() + 1);
+    //     //save to DB or ?
+    //     return new ResponseEntity<MembersDto>(member, HttpStatus.OK);
+    // }
+</script>
+
+<script>
+    $("#test1").on("click", function () {
+        getDataFromAPI();
+    });
+
+    $("#test2").on("click", function () {
+        postDataFromAPI();
+    });
+
+
+
+    function getDataFromAPI() {
+        $.ajax({
+            url: "/getdata",
+            type: "GET",
+            cache: false,
+            async: false,
+            success: function (data) {
+                console.log("GET DATA API RESPONSE - ID::"+data.id);
+                console.log("GET DATA API RESPONSE - NAME::"+data.name);
+            }, error: function (jqXHR, textStatus, errorThrown) {
+            }
+        });
+    }
+
+    function postDataFromAPI() {
+
+        var modelObj = {
+            id: "1",
+            name: "2"
+        };
+
+        console.log("post data:"+modelObj);
+
+        $.ajax({
+            type: "POST",
+            url: "/postdata",
+            cache: false,
+            async: false,
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify(modelObj),
+            success: function (data) {
+                console.log("POST API RESPONSE::"+data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+            }
+        });
+    }
+
+</script>
+</body>
+</html>
+
+
