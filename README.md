@@ -1,4 +1,2 @@
 # bedding-sell-and-introduce-online
-Website bedding sell and introduce online
-
-# Test commit
+Project Website to introduce and sell bedding online using Java 
