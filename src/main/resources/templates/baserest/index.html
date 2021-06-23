@@ -129,7 +129,7 @@
                     console.log(data);
                 },
                 error: function (errorMessage) { // error callback
-                    console.log("2");
+                    console.log(errorMessage.responseText);
                     console.log(errorMessage.responseJSON);
                     console.log(errorMessage.responseJSON.errors[0]);
                 }
@@ -160,7 +160,7 @@
                     console.log(data);
                 },
                 error: function (errorMessage) { // error callback
-                    console.log("2");
+                    console.log(errorMessage.responseText);
                     console.log(errorMessage.responseJSON);
                     console.log(errorMessage.responseJSON.errors[0]);
                 }

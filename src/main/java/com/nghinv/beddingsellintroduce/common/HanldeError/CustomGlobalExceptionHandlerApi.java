@@ -22,37 +22,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @author
+ * @author nghinv
  */
 
 @RestControllerAdvice
-public class CustomGlobalExceptionHandlerApi extends ResponseEntityExceptionHandler {
-
-    // error handle for @Valid
-    @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
-                                                                  HttpHeaders headers,
-                                                                  HttpStatus status, WebRequest request) {
-
-        Map<String, Object> body = new LinkedHashMap<>();
-        body.put("timestamp", new Date());
-        body.put("status", status.value());
-
-        //Get all errors
-        List<String> errors = ex.getBindingResult()
-                .getFieldErrors()
-                .stream()
-                .map(x -> x.getDefaultMessage())
-                .collect(Collectors.toList());
-        body.put("errors", errors);
-        System.out.println("log start");
-        System.out.println(body);
-        System.out.println("log end");
-        //
-        int errorCode = status.value();   // Valid fail -> errorCode = 400
-        System.out.println(status.value());
-        return new ResponseEntity<>(body, headers, status);
-    }
+public class CustomGlobalExceptionHandlerApi {
 
     private boolean isAjax(HttpServletRequest request) {
         String requestedWithHeader = request.getHeader("X-Requested-With");
