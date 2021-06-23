@@ -20,6 +20,10 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * @author
+ */
+
 @RestControllerAdvice
 public class CustomGlobalExceptionHandlerApi extends ResponseEntityExceptionHandler {
 
@@ -49,77 +53,77 @@ public class CustomGlobalExceptionHandlerApi extends ResponseEntityExceptionHand
         return new ResponseEntity<>(body, headers, status);
     }
 
-    private boolean isAjax(HttpServletRequest request) {
-        String requestedWithHeader = request.getHeader("X-Requested-With");
-        return "XMLHttpRequest".equals(requestedWithHeader);
-    }
+//    private boolean isAjax(HttpServletRequest request) {
+//        String requestedWithHeader = request.getHeader("X-Requested-With");
+//        return "XMLHttpRequest".equals(requestedWithHeader);
+//    }
+//
+//    // TODO:
+//    @ExceptionHandler(NullPointerException.class)
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
+//    public Object handleNullPointerException(NullPointerException e, HttpServletRequest request) {
+//        if (isAjax(request)) {
+//            return new ResponseEntity<>("Error with RestController: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
+//        }
+//        else {
+//            return "Error with Controller ";
+//        }
+//    }
 
-    // TODO:
-    @ExceptionHandler(NullPointerException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Object handleNullPointerException(NullPointerException e, HttpServletRequest request) {
-        if (isAjax(request)) {
-            return new ResponseEntity<>("Error with RestController: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
-        }
-        else {
-            return "Error with Controller ";
-        }
-    }
-
-    // TODO:
-    @ExceptionHandler(ConstraintViolationException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResponseEntity<String> handleConstraintViolationException(ConstraintViolationException e) {
-        return new ResponseEntity<>("not valid due to validation error: " + e.getMessage(), HttpStatus.BAD_REQUEST);
-    }
-
-
-
-    @ExceptionHandler(IndexOutOfBoundsException .class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResponseEntity<String> handleIndexOutOfBoundsException(IndexOutOfBoundsException  e) {
-        return new ResponseEntity<>("not valid due to validation error: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
-    }
-
-    @ExceptionHandler(ArrayIndexOutOfBoundsException .class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResponseEntity<String> handleArrayIndexOutOfBoundsException(ArrayIndexOutOfBoundsException  e) {
-        return new ResponseEntity<>("not valid due to validation error: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
-    }
-
-    @ExceptionHandler(ExceptionInInitializerError.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResponseEntity<String> handleExceptionInInitializerError(ExceptionInInitializerError  e) {
-        return new ResponseEntity<>("not valid due to validation error: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
-    }
-
-    @ExceptionHandler(IllegalArgumentException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException  e) {
-        return new ResponseEntity<>("not valid due to validation error: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
-    }
-
-    @ExceptionHandler(RuntimeException .class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResponseEntity<String> handleRuntimeException(RuntimeException  e) {
-        return new ResponseEntity<>("not valid due to validation error: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
-    }
-
-    @ExceptionHandler(MyException .class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResponseEntity<String> handleMyException(MyException  e) {
-        return new ResponseEntity<>("not valid due to validation error: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
-    }
-
-    @ExceptionHandler(Exception.class)
-    public final ResponseEntity<Object> handleAllExceptions(Exception e, WebRequest request) {
-//        List<String> details = new ArrayList<>();
-//        details.add(ex.getLocalizedMessage());
-//        ErrorResponse error = new ErrorResponse("Server Error", details);
-//        return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
-
-
-        return new ResponseEntity<>("not valid due to validation error: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
-    }
+//    // TODO:
+//    @ExceptionHandler(ConstraintViolationException.class)
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
+//    public ResponseEntity<String> handleConstraintViolationException(ConstraintViolationException e) {
+//        return new ResponseEntity<>("not valid due to validation error: " + e.getMessage(), HttpStatus.BAD_REQUEST);
+//    }
+//
+//
+//
+//    @ExceptionHandler(IndexOutOfBoundsException .class)
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
+//    public ResponseEntity<String> handleIndexOutOfBoundsException(IndexOutOfBoundsException  e) {
+//        return new ResponseEntity<>("not valid due to validation error: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
+//    }
+//
+//    @ExceptionHandler(ArrayIndexOutOfBoundsException .class)
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
+//    public ResponseEntity<String> handleArrayIndexOutOfBoundsException(ArrayIndexOutOfBoundsException  e) {
+//        return new ResponseEntity<>("not valid due to validation error: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
+//    }
+//
+//    @ExceptionHandler(ExceptionInInitializerError.class)
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
+//    public ResponseEntity<String> handleExceptionInInitializerError(ExceptionInInitializerError  e) {
+//        return new ResponseEntity<>("not valid due to validation error: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
+//    }
+//
+//    @ExceptionHandler(IllegalArgumentException.class)
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
+//    public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException  e) {
+//        return new ResponseEntity<>("not valid due to validation error: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
+//    }
+//
+//    @ExceptionHandler(RuntimeException .class)
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
+//    public ResponseEntity<String> handleRuntimeException(RuntimeException  e) {
+//        return new ResponseEntity<>("not valid due to validation error: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
+//    }
+//
+//    @ExceptionHandler(MyException .class)
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
+//    public ResponseEntity<String> handleMyException(MyException  e) {
+//        return new ResponseEntity<>("not valid due to validation error: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
+//    }
+//
+//    @ExceptionHandler(Exception.class)
+//    public final ResponseEntity<Object> handleAllExceptions(Exception e, WebRequest request) {
+////        List<String> details = new ArrayList<>();
+////        details.add(ex.getLocalizedMessage());
+////        ErrorResponse error = new ErrorResponse("Server Error", details);
+////        return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
+//
+//
+//        return new ResponseEntity<>("not valid due to validation error: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
+//    }
 
 }

@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * @author anuragdhunna
+ * @author
  */
 
 @ControllerAdvice
@@ -64,19 +64,20 @@ public class GlobalExceptionHandler  {
         //Do something additional if required
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("error");
-        modelAndView.addObject("message", ex.getMessage());
+        modelAndView.addObject("status", "BAD_REQUEST");
+        modelAndView.addObject("message", "NULL POINT");
         return modelAndView;
     }
 
     @ExceptionHandler(SQLException.class)
-    public String handleSQLException(HttpServletRequest request, SQLException ex){
+    public String handleSQLException(HttpServletRequest request, SQLException ex) {
 //        logger.info("SQLException Occured:: URL="+request.getRequestURL());
         return "database_error";
     }
 
     @ResponseStatus(value=HttpStatus.NOT_FOUND, reason="IOException occured")
     @ExceptionHandler(IOException.class)
-    public String handleIOException(HttpServletRequest request, IOException ex){
+    public String handleIOException(HttpServletRequest request, IOException ex) {
 //        logger.error("IOException handler executed");
         //returning 404 error code
 

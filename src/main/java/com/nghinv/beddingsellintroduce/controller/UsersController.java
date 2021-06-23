@@ -19,7 +19,7 @@ public class UsersController {
 
         UsersDto user = (UsersDto) redirectAttributes.getAttribute("user");
         if (user == null) {
-
+            user.setPassword("1");
             user = new UsersDto();
 //            throw new RuntimeException();
         }

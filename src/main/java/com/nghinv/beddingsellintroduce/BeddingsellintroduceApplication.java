@@ -20,10 +20,10 @@ import javax.annotation.PreDestroy;
 
 @SpringBootApplication
 @RestController
-public class Beddingsellintroduce {
+public class BeddingsellintroduceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Beddingsellintroduce.class, args);
+		SpringApplication.run(BeddingsellintroduceApplication.class, args);
 	}
 
 	@Bean
