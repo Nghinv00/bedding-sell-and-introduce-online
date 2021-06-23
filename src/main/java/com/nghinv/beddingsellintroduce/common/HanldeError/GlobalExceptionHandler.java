@@ -69,28 +69,28 @@ public class GlobalExceptionHandler  {
         return modelAndView;
     }
 
-    @ExceptionHandler(SQLException.class)
-    public String handleSQLException(HttpServletRequest request, SQLException ex) {
-//        logger.info("SQLException Occured:: URL="+request.getRequestURL());
-        return "database_error";
-    }
-
-    @ResponseStatus(value=HttpStatus.NOT_FOUND, reason="IOException occured")
-    @ExceptionHandler(IOException.class)
-    public String handleIOException(HttpServletRequest request, IOException ex) {
-//        logger.error("IOException handler executed");
-        //returning 404 error code
-
-        return "IOException_error";
-
-    }
-
-    @ResponseStatus(reason="RuntimeException occured")
-    @ExceptionHandler(RuntimeException.class)
-    public String handleRuntimeException(HttpServletRequest request, RuntimeException ex){
-//        logger.info("SQLException Occured:: URL="+request.getRequestURL());
-        return "runtime_error";
-    }
+//    @ExceptionHandler(SQLException.class)
+//    public String handleSQLException(HttpServletRequest request, SQLException ex) {
+////        logger.info("SQLException Occured:: URL="+request.getRequestURL());
+//        return "database_error";
+//    }
+//
+//    @ResponseStatus(value=HttpStatus.NOT_FOUND, reason="IOException occured")
+//    @ExceptionHandler(IOException.class)
+//    public String handleIOException(HttpServletRequest request, IOException ex) {
+////        logger.error("IOException handler executed");
+//        //returning 404 error code
+//
+//        return "IOException_error";
+//
+//    }
+//
+//    @ResponseStatus(reason="RuntimeException occured")
+//    @ExceptionHandler(RuntimeException.class)
+//    public String handleRuntimeException(HttpServletRequest request, RuntimeException ex){
+////        logger.info("SQLException Occured:: URL="+request.getRequestURL());
+//        return "runtime_error";
+//    }
 
 //    @ExceptionHandler(ResourceNotFoundException.class)
 //    public ResponseEntity<ExceptionResponse> resourceNotFound(ResourceNotFoundException ex) {

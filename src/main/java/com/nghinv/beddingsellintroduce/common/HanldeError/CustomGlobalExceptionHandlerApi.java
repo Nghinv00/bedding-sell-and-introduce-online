@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import javax.servlet.http.HttpServletRequest;
@@ -53,22 +54,26 @@ public class CustomGlobalExceptionHandlerApi extends ResponseEntityExceptionHand
         return new ResponseEntity<>(body, headers, status);
     }
 
-//    private boolean isAjax(HttpServletRequest request) {
-//        String requestedWithHeader = request.getHeader("X-Requested-With");
-//        return "XMLHttpRequest".equals(requestedWithHeader);
-//    }
-//
-//    // TODO:
-//    @ExceptionHandler(NullPointerException.class)
-//    @ResponseStatus(HttpStatus.BAD_REQUEST)
-//    public Object handleNullPointerException(NullPointerException e, HttpServletRequest request) {
-//        if (isAjax(request)) {
-//            return new ResponseEntity<>("Error with RestController: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
-//        }
-//        else {
-//            return "Error with Controller ";
-//        }
-//    }
+    private boolean isAjax(HttpServletRequest request) {
+        String requestedWithHeader = request.getHeader("X-Requested-With");
+        return "XMLHttpRequest".equals(requestedWithHeader);
+    }
+
+    // TODO:
+    @ExceptionHandler(NullPointerException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Object handleNullPointerException(NullPointerException e, HttpServletRequest request) {
+        if (isAjax(request)) {
+            return new ResponseEntity<>("Error with RestController: " + e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
+        }
+        else {
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setViewName("error");
+            modelAndView.addObject("status", "BAD_REQUEST");
+            modelAndView.addObject("message", e.getMessage());
+            return modelAndView;
+        }
+    }
 
 //    // TODO:
 //    @ExceptionHandler(ConstraintViolationException.class)
