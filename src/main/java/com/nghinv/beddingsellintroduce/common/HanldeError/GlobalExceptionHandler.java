@@ -27,21 +27,22 @@ import java.util.stream.Collectors;
  */
 
 @ControllerAdvice
-public class GlobalExceptionHandler  {
+public class GlobalExceptionHandler {
+        // implements ProblemHandling, SecurityAdviceTrait
 
 //    private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
-
-    @ExceptionHandler(NullPointerException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ModelAndView handleException(NullPointerException ex)
-    {
-        //Do something additional if required
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("error");
-        modelAndView.addObject("status", "BAD_REQUEST");
-        modelAndView.addObject("message", "NULL POINT");
-        return modelAndView;
-    }
+//
+//    @ExceptionHandler(NullPointerException.class)
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
+//    public ModelAndView handleException(NullPointerException ex)
+//    {
+//        //Do something additional if required
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("error");
+//        modelAndView.addObject("status", "BAD_REQUEST");
+//        modelAndView.addObject("message", "NULL POINT");
+//        return modelAndView;
+//    }
 
 //    @ExceptionHandler(SQLException.class)
 //    public String handleSQLException(HttpServletRequest request, SQLException ex) {

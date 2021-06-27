@@ -17,7 +17,7 @@
 <h2>add-Member.thymleaf</h2>
 <form th:action="addMember" th:method="POST"  th:object="${member}">
 
-    GUID: <input type="text" name="MemberGuiId" th:field="*{MemberGuiId}"/>
+    GUID: <input type="text" name="MemberGuiId" th:field="*{MemberGuiId()}"/>
     <div th:if="${#fields.hasErrors('MemberGuiId')}" class="text-danger" th:errors="*{MemberGuiId}">NameError</div>
     <br/><br/>
 

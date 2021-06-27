@@ -9,10 +9,8 @@
     <link th:href="@{/css/main.css}" rel="stylesheet"/>
 
     <!--js-->
-    <script th:src="@{/js/jquery.min.js}"></script>
     <script th:src="@{/js/bootstrap.js}"></script>
     <script th:src="@{/js/main.js}"></script>
-
 
 </head>
 <body>
@@ -20,9 +18,8 @@ User
 
 // thymeleaf
 <h2>info user</h2>
-<form method="post" th:action="@{editMultiUserGetList}" th:object="${form}" id="form">
-    <a th:href="@{addMultiUser}" type="submit" class="btn btn-info">Add All user</a>
-    <button th:href="@{editMultiUserGetList}" type="submit" class="btn btn-danger">Edit All user</button>
+<form method="post" th:action="@{deleteAllUser222222}" th:object="${form}" >
+    <button th:href="@{deleteAllUser}" type="submit" class="btn btn-primary">Delete All user</button>
     <a th:href="@{addUser}" class="btn btn-primary">Add user</a>
     <a th:href="@{index}" class="btn btn-primary">list</a>
     <input type="hidden" name="action" value="deleteAll" />
@@ -42,38 +39,40 @@ User
         </thead>
         <tbody>
         <tr class="row" id="tr1" th:each="user, stat : ${form.userList}">
-            <input type="hidden" name="index" th:value="${stat.index}" />
             <td class="cell" id="td1" th:text="${stat.index}">
+                <input type="hidden" name="index" th:value="${stat.index}" />
             </td>
             <td class="cell" id="td2">
                 <input type="checkbox"
-                       id="checkboxAction"
-                       class="checkboxAction"
-                       th:name="|userList[${stat.index}].action|"
-                       th:value="${user.getAction()}"
-                       th:checked="${user.getAction()}"
+                       th:id="action"
+                       th:name="|user[${stat.index}]|"
+                       th:value="${user.getUserId()}"
                 />
+                <!--                       th:checked="${user.getAction()}"-->
+
             </td>
-            <td class="cell" id="td3" th:text="${user.getUserId()}" > </td>
-            <input type="hidden" id="userId"  th:name="|userList[${stat.index}].userId|" th:value="${user.getUserId()}" />
+            <td class="cell " id="td3" th:text="${user.getUserId()}" > </td>
+            <input th:name="|userList[${stat.index}].userId|" th:value="${user.getUserId()}" />
 
             <td class="cell" id="td4" th:text="${user.getUserName()}"></td>
-            <input type="hidden" id="userName" th:name="|userList[${stat.index}].userName|"  th:value="${user.getUserName()}" />
+            <input th:name="|userList[${stat.index}].userName|" th:value="${user.getUserName()}" />
 
             <td class="cell" id="td5" th:text="${user.getUserLogin()}"></td>
-            <input type="hidden" id="userLogin" th:name="|userList[${stat.index}].userLogin|"  th:value="${user.getUserLogin()}" />
+            <input th:name="|userList[${stat.index}].userLogin|" th:value="${user.getUserLogin()}" />
 
             <td class="cell" id="td6" th:text="${user.getPassword()}" ></td>
-            <input type="hidden" id="password" th:name="|userList[${stat.index}].password|" th:value="${user.getPassword()}" />
+            <input th:name="|userList[${stat.index}].password|" th:value="${user.getPassword()}" />
 
             <td class="cell" id="td7" th:text="${user.getPhone()}" ></td>
-            <input type="hidden" id="phone" th:name="|userList[${stat.index}].phone|"  th:value="${user.getPhone()}" />
+            <input th:name="|userList[${stat.index}].phone|" th:value="${user.getPhone()}" />
 
             <td class="cell" id="td08" >
                 <a th:href="@{/user/updateUser/{id}(id=${user.getUserId()})}" class="btn btn-primary">Update user</a>
-            </td>
-            <td>
                 <a th:href="@{/user/deleteUser(id=${user.getUserId()},action=('not_delete'))}" class="btn btn-primary">Delete user</a>
+            </td>
+
+            <td>
+                <!--                <span th:text="#{user.delete('3', @{/order/details(id=3,action='show_all')})}></span>-->
             </td>
         </tr>
         </tbody>
@@ -81,22 +80,7 @@ User
 </form>
 
 <br><br><br><br><br><br><br>
-<script>
 
-
-    $(document).ready(function() {
-        $('.checkboxAction').on('change', function (e) {
-            if ( $('#checkboxAction').val() == 'false') {
-                $('#checkboxAction').val('true')
-            }
-            else {
-                $('#checkboxAction').val('false')
-            }
-        });
-
-    });
-
-</script>
 
 </body>
 </html>

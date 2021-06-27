@@ -1,0 +1,86 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Books</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+    <!--css-->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+
+    <!--js-->
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Add Books </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <a class="btn btn-info" href="#" th:href="@{/user/index}"> Back to All Books </a>
+            <form action="#" class="form-horizontal"
+                  th:action="@{/user/addMultiUser}"
+                  th:object="${form}"
+                  method="post">
+                <fieldset>
+					<span class="pull-right">
+						    <input type="submit" id="submitButton" class="btn btn-success" th:value="Save">
+						    <input type="reset" id="resetButton" class="btn btn-danger" th:value="Reset"/>
+					</span>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th> </th>
+                            <th> userId</th>
+                            <th> userName</th>
+                            <th> userLogin</th>
+                            <th> password</th>
+                            <th> phone</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="user, itemStat : *{userList}">
+                            <td>
+                                action
+                                <input
+                                        th:type="checkbox"
+                                        th:placeholder="checkbox + ' ' + ${itemStat.count}"
+                                        th:field="*{userList[__${itemStat.index}__].action}"
+                                />
+                            </td>
+                            <td>userId: <input
+                                    th:type="number"
+                                    th:placeholder="userId + ' ' + ${itemStat.count}"
+                                    th:field="*{userList[__${itemStat.index}__].userId}"
+                                    /></td>
+
+                            <td>userName: <input th:placeholder="userName + ' ' + ${itemStat.count}"
+                                    th:field="*{userList[__${itemStat.index}__].userName}"
+                                    /></td>
+
+                            <td>userLogin: <input th:placeholder="userLogin + ' ' + ${itemStat.count}"
+                                    th:field="*{userList[__${itemStat.index}__].userLogin}"
+                                     /></td>
+
+                            <td>password: <input th:placeholder="password + ' ' + ${itemStat.count}"
+                                    th:field="*{userList[__${itemStat.index}__].password}"
+                                     /></td>
+
+                            <td>phone: <input th:placeholder="phone + ' ' + ${itemStat.count}"
+                                    th:field="*{userList[__${itemStat.index}__].phone}"
+                                    /></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

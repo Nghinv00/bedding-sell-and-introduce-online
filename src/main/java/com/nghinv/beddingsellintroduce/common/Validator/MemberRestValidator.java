@@ -21,12 +21,9 @@ public class MemberRestValidator implements Validator {
 
             MemberRestDto member = (MemberRestDto) target;
             ValidationUtils.rejectIfEmptyOrWhitespace(errors, "MemberName", "MembersDto.MemberName", "Please enter a MemberName");
-//            if (null == member.getMemberLogin() || "".equals(member.getMemberLogin()))  {
-//                // throw new NullPointerException("Parameter 'getMemberLogin' cannot be null");
-//            }
+
             if (null == member.getMemberId() || (null != member.getMemberId() && member.getMemberId() <= 1)) {
                 errors.rejectValue("MemberId", "MembersDto.MemberId", "Please enter a MemberId > 1 interface");
-                throw new NullPointerException("Validated restcontroller error");
             }
 
             if (null == member.getMemberLogin() || (null != member.getMemberLogin() && member.getMemberLogin().length() < 1)) {

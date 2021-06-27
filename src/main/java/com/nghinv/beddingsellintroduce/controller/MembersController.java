@@ -31,9 +31,6 @@ public class MembersController extends BaseController {
     @GetMapping("/") // Nếu người dùng request tới địa chỉ "/"
     public String index2(Model model) {
 
-       if (true) {
-           throw new NullPointerException("NULL");
-       }
         return "member/index"; // Trả về file index.html
     }
 

@@ -29,7 +29,7 @@ public class WebController {
 //                .type("Support")
 //                .build();
 
-        return "index"; // Trả về file index.html
+        return "/web/index"; // Trả về file index.html
     }
 
     // Đón nhận request GET
@@ -43,7 +43,7 @@ public class WebController {
 //                .type("Support")
 //                .build();
 
-        return "index"; // Trả về file index.html
+        return "/web/index"; // Trả về file index.html
     }
 
     @GetMapping("/profile")
@@ -61,7 +61,7 @@ public class WebController {
         model.addAttribute("lodaProfile", profile);
 
         // TRả về template profile.html
-        return "profile";
+        return "/web/profile";
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.POST)
@@ -79,7 +79,7 @@ public class WebController {
         model.addAttribute("lodaProfile", profile);
 
         // TRả về template profile.html
-        return "profile";
+        return "/web/profile";
     }
 
 
@@ -98,7 +98,7 @@ public class WebController {
         model.addAttribute("lodaProfile", profile);
 
         // TRả về template profile.html
-        return "profile";
+        return "/web/profile";
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.DELETE)
@@ -113,14 +113,14 @@ public class WebController {
         model.addAttribute("lodaProfile", profile);
 
         // TRả về template profile.html
-        return "profile";
+        return "/web/profile";
     }
 
     // Đón nhận request GET
     @GetMapping("/about") // Nếu người dùng request tới địa chỉ "/about"
     public String about(Model model, @Valid @RequestParam(name = "about", required = true, defaultValue = "") String about) {
         model.addAttribute("about", about);
-        return "about"; // Trả về file index.html
+        return "/web/about"; // Trả về file index.html
     }
 
     @GetMapping("/hello")
@@ -133,14 +133,14 @@ public class WebController {
 
         if (name.isEmpty()) {
             model.addAttribute("name", "Invalid name");
-            return "index"; // Trả về file index.html
+            return "/web/index"; // Trả về file index.html
         }
         // Gắn vào model giá trị name nhận được
         model.addAttribute("name", name);
         Object name1 = model.getAttribute("name");
         model.addAttribute("name1", name1);
 
-        return "hello"; // trả về file hello.html cùng với thông tin trong object Model
+        return "/web/hello"; // trả về file hello.html cùng với thông tin trong object Model
     }
 
 }

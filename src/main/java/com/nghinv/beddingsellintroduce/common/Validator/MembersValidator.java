@@ -26,7 +26,6 @@ public class MembersValidator  implements Validator {
         MembersDto member = (MembersDto) target;
         if (null == member.getMemberId() || (null != member.getMemberId() && member.getMemberId() <= 1)) {
             errors.rejectValue("MemberId", "MembersDto.MemberId", "Please enter a MemberId > 1 interface");
-            throw new NullPointerException("Validated controller error");
         }
 
         if (null == member.getMemberLogin() || (null != member.getMemberLogin() && member.getMemberLogin().length() > 1)) {

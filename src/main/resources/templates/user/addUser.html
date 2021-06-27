@@ -1,19 +1,45 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Add User</title>
+
+    <!--css-->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+
+    <!--js-->
+    <script th:src="@{/js/bootstrap.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+
 </head>
 <body>
 <h2>add-user.jsp</h2>
-<form action="addUser" method="POST" modelAttribute="user">
-    Id: <input type="text" name="UserId"/> <br/><br/>
-    Name: <input type="text"  name="UserName"/>  <br/><br/>
-    Email: <input type="text"  name="UserLogin"/>  <br/><br/>
-    Phone Number: <input type="text"  name="Password"/><br/><br/>
-    Date Of Birth: <input type="text"  name="Phone"/><br/><br/>
+<form action="addUser" method="POST"  th:object="${user}">
+
+    Id: <input type="text" th:field="*{userId}" /> <br/><br/>
+    <div th:if="${#fields.hasErrors('UserId')}" class="text-danger" th:errors="*{UserId}">UserIdError</div>
+    <br/><br/>
+
+    UserName: <input type="text"  th:field="*{userName}" />  <br/><br/>
+    <div th:if="${#fields.hasErrors('userName')}" class="text-danger" th:errors="*{userName}">UserIdError</div>
+    <br/><br/>
+
+    UserLogin: <input type="text"  th:field="*{userLogin}" />  <br/><br/>
+    <div th:if="${#fields.hasErrors('userLogin')}" class="text-danger" th:errors="*{userLogin}">UserIdError</div>
+    <br/><br/>
+
+    Password: <input type="text"  th:field="*{password}" /><br/><br/>
+    <div th:if="${#fields.hasErrors('password')}" class="text-danger" th:errors="*{password}">UserIdError</div>
+    <br/><br/>
+
+    Phone: <input type="text"  th:field="*{phone}" /><br/><br/>
+    <div th:if="${#fields.hasErrors('phone')}" class="text-danger" th:errors="*{phone}">UserIdError</div>
+    <br/><br/>
+
     <button type="submit">Submit</button>
 </form>
 
+<a class="btn btn-primary" th:href="@{index}">Back</a>
 </body>
 </html>

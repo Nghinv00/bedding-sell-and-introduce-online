@@ -1,78 +1,107 @@
 package com.nghinv.beddingsellintroduce.common.Dto;
 
 import com.nghinv.beddingsellintroduce.common.Annotation.PhoneAnnotation;
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
+import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-@NoArgsConstructor
 @AllArgsConstructor
 public class UsersDto implements Serializable {
 
-    public int getUserId() {
-        return UserId;
+    public UsersDto() {
+//        action = false;
     }
 
-    public void setUserId(int userId) {
-        UserId = userId;
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getUserName() {
-        return UserName;
+        return userName;
     }
 
     public void setUserName(String userName) {
-        UserName = userName;
+        this.userName = userName;
     }
 
     public String getUserLogin() {
-        return UserLogin;
+        return userLogin;
     }
 
     public void setUserLogin(String userLogin) {
-        UserLogin = userLogin;
+        this.userLogin = userLogin;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
-    private int UserId;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-    @NotNull
-    private String UserName;
+    public String getPhone() {
+        return phone;
+    }
 
-    @NotNull
-    @Length(min = 5, max = 10)
-    private String UserLogin;
+    public boolean getAction() { return action; }
 
-    @NotNull
-    private String Password;
+    public void setAction(boolean action) { this.action = action; }
 
-    private int SortOrder;
+    private boolean action;
 
-    private String ImageFile;
+//    @Id
+//    @NotNull
+//    @Min(1)
+    private Integer userId;
 
-    private String Address;
+//    @NotBlank(message ="UserName Not blank")
+//    @NotNull(message ="UserName not null")
+//    @NotEmpty(message ="UserName Not Empty")
+    private String userName;
 
-    private int Sex;
+//    @NotBlank(message ="UserLogin not blank")
+//    @Length(min = 2, max = 10)
+    private String userLogin;
 
-    private String Email;
+//    @NotBlank(message ="password Not blank")
+//    @NotNull(message ="password not null")
+//    @NotEmpty(message ="password not empty")
+    private String password;
 
-    private String Tel;
+//    @PhoneAnnotation(message = "Phone Number is invalid")
+    private String phone;
 
-    @PhoneAnnotation(message = "Phone Number is invalid")
-    private String Phone;
-
-    private boolean IsAdmin;
-
-    private String Notes;
+//
+//    private int SortOrder;
+//
+//    private String ImageFile;
+//
+//    private String Address;
+//
+//    private int Sex;
+//
+//    private String Email;
+//
+//    private String Tel;
+//
+//    private boolean IsAdmin;
+//
+//    private String Notes;
 
 }
