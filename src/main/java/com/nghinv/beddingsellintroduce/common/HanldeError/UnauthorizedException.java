@@ -1,4 +1,4 @@
-package com.nghinv.beddingsellintroduce.common.HanldeError;
+package com.nghinv.beddingsellintroduce.common.hanldeError;
 
 /**
  * @author

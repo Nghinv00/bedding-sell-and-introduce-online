@@ -1,4 +1,4 @@
-package com.nghinv.beddingsellintroduce.common.Dto.web;
+package com.nghinv.beddingsellintroduce.common.dto.web;
 
 import lombok.*;
 

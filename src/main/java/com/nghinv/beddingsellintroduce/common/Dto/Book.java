@@ -1,7 +1,6 @@
-package com.nghinv.beddingsellintroduce.common.Dto;
+package com.nghinv.beddingsellintroduce.common.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor

@@ -1,6 +1,6 @@
-package com.nghinv.beddingsellintroduce.common.Annotation;
+package com.nghinv.beddingsellintroduce.common.annotation;
 
-import com.nghinv.beddingsellintroduce.common.Validator.PhoneValidator;
+import com.nghinv.beddingsellintroduce.common.validator.PhoneValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

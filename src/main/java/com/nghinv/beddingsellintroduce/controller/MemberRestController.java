@@ -1,7 +1,7 @@
 package com.nghinv.beddingsellintroduce.controller;
 
-import com.nghinv.beddingsellintroduce.common.Dto.Demo;
-import com.nghinv.beddingsellintroduce.common.Dto.MemberRestDto;
+import com.nghinv.beddingsellintroduce.common.dto.Demo;
+import com.nghinv.beddingsellintroduce.common.dto.MemberRestDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;

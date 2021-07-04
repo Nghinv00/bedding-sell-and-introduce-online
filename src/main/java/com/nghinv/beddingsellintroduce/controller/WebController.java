@@ -1,6 +1,6 @@
 package com.nghinv.beddingsellintroduce.controller;
 
-import com.nghinv.beddingsellintroduce.common.Dto.web.Info;
+import com.nghinv.beddingsellintroduce.common.dto.web.Info;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

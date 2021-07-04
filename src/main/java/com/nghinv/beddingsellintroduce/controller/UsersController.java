@@ -1,7 +1,7 @@
 package com.nghinv.beddingsellintroduce.controller;
 
-import com.nghinv.beddingsellintroduce.common.ClientFrom.UserDtoListForm;
-import com.nghinv.beddingsellintroduce.common.Dto.UsersDto;
+import com.nghinv.beddingsellintroduce.common.clientFrom.UserDtoListForm;
+import com.nghinv.beddingsellintroduce.common.dto.UsersDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

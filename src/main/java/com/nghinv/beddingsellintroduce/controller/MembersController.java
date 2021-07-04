@@ -1,6 +1,6 @@
 package com.nghinv.beddingsellintroduce.controller;
 
-import com.nghinv.beddingsellintroduce.common.Dto.MembersDto;
+import com.nghinv.beddingsellintroduce.common.dto.MembersDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;

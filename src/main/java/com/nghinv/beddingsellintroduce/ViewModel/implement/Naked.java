@@ -1,6 +1,6 @@
-package com.nghinv.beddingsellintroduce.ViewModel.implement;
+package com.nghinv.beddingsellintroduce.viewModel.implement;
 
-import com.nghinv.beddingsellintroduce.ViewModel.interfaces.Outfit;
+import com.nghinv.beddingsellintroduce.viewModel.interfaces.Outfit;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 

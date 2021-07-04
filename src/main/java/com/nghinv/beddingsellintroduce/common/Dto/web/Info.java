@@ -1,6 +1,4 @@
-package com.nghinv.beddingsellintroduce.common.Dto.web;
-
-import lombok.*;
+package com.nghinv.beddingsellintroduce.common.dto.web;
 
 import java.io.Serializable;
 

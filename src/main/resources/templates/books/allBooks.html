@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>All Books</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
 </head>
 <body>
 <div class="container">
@@ -15,17 +15,19 @@
             <table class="table">
                 <thead>
                 <tr>
+                    <th> Index </th>
                     <th> Title </th>
                     <th> Author </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:if="${books.empty}">
-                    <td colspan="2"> No Books Available </td>
+                    <td colspan="3"> No Books Available </td>
                 </tr>
                 <tr th:each="book : ${books}">
-                    <td><span th:text="${book.title}"> Title </span></td>
-                    <td><span th:text="${book.author}"> Author </span></td>
+                    <td><span th:text="${book.getId()}"> index </span></td>
+                    <td><span th:text="${book.getTitle()}"> Title </span></td>
+                    <td><span th:text="${book.getAuthor()}"> Author </span></td>
                 </tr>
                 </tbody>
             </table>

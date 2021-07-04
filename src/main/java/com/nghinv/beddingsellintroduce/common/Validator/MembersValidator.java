@@ -1,7 +1,7 @@
-package com.nghinv.beddingsellintroduce.common.Validator;
+package com.nghinv.beddingsellintroduce.common.validator;
 
 
-import com.nghinv.beddingsellintroduce.common.Dto.MembersDto;
+import com.nghinv.beddingsellintroduce.common.dto.MembersDto;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 

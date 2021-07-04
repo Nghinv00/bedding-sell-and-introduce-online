@@ -1,7 +1,6 @@
-package com.nghinv.beddingsellintroduce.common.ClientFrom;
+package com.nghinv.beddingsellintroduce.common.clientFrom;
 
-import com.nghinv.beddingsellintroduce.common.Dto.Book;
-import com.nghinv.beddingsellintroduce.common.Dto.UsersDto;
+import com.nghinv.beddingsellintroduce.common.dto.UsersDto;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.nghinv.beddingsellintroduce.controller;
 
-import com.nghinv.beddingsellintroduce.common.ClientFrom.BooksCreationDto;
-import com.nghinv.beddingsellintroduce.common.Dto.Book;
+import com.nghinv.beddingsellintroduce.common.clientFrom.BooksCreationDto;
+import com.nghinv.beddingsellintroduce.common.dto.Book;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 @RequestMapping("/books")

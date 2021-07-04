@@ -1,4 +1,4 @@
-package com.nghinv.beddingsellintroduce.common.Dto;
+package com.nghinv.beddingsellintroduce.common.dto;
 
 import java.io.Serializable;
 

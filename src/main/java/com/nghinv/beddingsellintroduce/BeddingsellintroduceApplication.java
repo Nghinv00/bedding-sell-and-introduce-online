@@ -1,8 +1,8 @@
 package com.nghinv.beddingsellintroduce;
 
-import com.nghinv.beddingsellintroduce.common.Dto.Demo;
-import com.nghinv.beddingsellintroduce.common.Validator.MemberRestValidator;
-import com.nghinv.beddingsellintroduce.common.Validator.MembersValidator;
+import com.nghinv.beddingsellintroduce.common.dto.Demo;
+import com.nghinv.beddingsellintroduce.common.validator.MemberRestValidator;
+import com.nghinv.beddingsellintroduce.common.validator.MembersValidator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;

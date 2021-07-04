@@ -1,4 +1,4 @@
-package com.nghinv.beddingsellintroduce.common.Dto.Todo;
+package com.nghinv.beddingsellintroduce.common.dto.Todo;
 
 import lombok.Data;
 

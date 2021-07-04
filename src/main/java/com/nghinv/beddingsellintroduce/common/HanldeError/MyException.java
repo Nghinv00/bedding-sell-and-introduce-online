@@ -1,4 +1,4 @@
-package com.nghinv.beddingsellintroduce.common.HanldeError;
+package com.nghinv.beddingsellintroduce.common.hanldeError;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
