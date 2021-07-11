@@ -1,4 +1,4 @@
-package com.nghinv.beddingsellintroduce.viewModel.interfaces;
+package com.nghinv.beddingsellintroduce.viewmodel.interfaces;
 
 public interface Outfit {
     void wear();

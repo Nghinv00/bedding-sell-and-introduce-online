@@ -1,4 +1,4 @@
-package com.nghinv.beddingsellintroduce.viewModel.implement;
+package com.nghinv.beddingsellintroduce.viewmodel.implement;
 
 import org.springframework.stereotype.Component;
 
